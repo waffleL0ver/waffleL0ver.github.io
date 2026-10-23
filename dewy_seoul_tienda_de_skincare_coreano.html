@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dewy Seoul ♡ | Skincare Coreano</title>
+  <style>
+    /* VARIABLES Y ESTILOS GLOBALES */
+    :root {
+      --rosa-pastel: #F3DDE3;
+      --rosa-empolvado: #E7BFCB;
+      --crema: #FFF9F3;
+      --blanco: #FFFFFF;
+      --marron-suave: #806D6D;
+      --texto-principal: #42373A;
+      --sombra-suave: 0 4px 15px rgba(66, 55, 58, 0.08);
+      --sombra-hover: 0 8px 25px rgba(66, 55, 58, 0.12);
+      --transicion: all 0.3s ease;
+      --borde-radio: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--crema);
+      color: var(--texto-principal);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ENCABEZADO Y NAVEGACIÓN */
+    header {
+      background-color: var(--blanco);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--marron-suave);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transicion);
+    }
+
+    .nav-links a:hover {
+      color: var(--rosa-empolvado);
+    }
+
+    .cart-btn {
+      background-color: var(--rosa-pastel);
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      transition: var(--transicion);
+      cursor: pointer;
+      border: none;
+      color: var(--texto-principal);
+    }
+
+    .cart-btn:hover {
+      background-color: var(--rosa-empolvado);
+    }
+
+    /* CONTENEDOR PRINCIPAL Y SECCIONES */
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      color: var(--texto-principal);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: var(--rosa-empolvado);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* INICIO / HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--texto-principal);
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--marron-suave);
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transicion);
+      border: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: var(--rosa-empolvado);
+      color: var(--blanco);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--marron-suave);
+    }
+
+    .btn-secondary {
+      background-color: var(--rosa-pastel);
+      color: var(--texto-principal);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--rosa-empolvado);
+      color: var(--blanco);
+    }
+
+    .hero-image img {
+      border-radius: var(--borde-radio);
+      box-shadow: var(--sombra-suave);
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    /* FILTROS Y BÚSQUEDA */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .search-box input {
+      padding: 0.7rem 1.2rem;
+      border: 1px solid var(--rosa-empolvado);
+      border-radius: 20px;
+      outline: none;
+      width: 250px;
+      background: var(--blanco);
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--rosa-empolvado);
+      background: var(--blanco);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: var(--transicion);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--rosa-empolvado);
+      color: var(--blanco);
+    }
+
+    /* TARJETAS DE PRODUCTO Y BOXES */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--blanco);
+      border-radius: var(--borde-radio);
+      padding: 1.5rem;
+      box-shadow: var(--sombra-suave);
+      transition: var(--transicion);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sombra-hover);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: calc(var(--borde-radio) - 6px);
+      margin-bottom: 1rem;
+    }
+
+    .card-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--marron-suave);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-description {
+      font-size: 0.85rem;
+      color: var(--marron-suave);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .card-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      margin-bottom: 1rem;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .card-actions .btn {
+      flex: 1;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* SECCIÓN NOSOTROS */
+    .nosotros-content {
+      background-color: var(--blanco);
+      padding: 2.5rem;
+      border-radius: var(--borde-radio);
+      box-shadow: var(--sombra-suave);
+    }
+
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .valor-card {
+      background-color: var(--crema);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    /* CARRITO Y FORMULARIOS */
+    .cart-section, .checkout-section, .policy-section {
+      background-color: var(--blanco);
+      border-radius: var(--borde-radio);
+      padding: 2rem;
+      box-shadow: var(--sombra-suave);
+      margin-bottom: 2rem;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rosa-pastel);
+    }
+
+    .cart-item-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cart-item-info img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .qty-btn {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 1px solid var(--rosa-empolvado);
+      background: var(--blanco);
+      cursor: pointer;
+    }
+
+    .cart-total {
+      text-align: right;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid var(--rosa-empolvado);
+      border-radius: 8px;
+      outline: none;
+    }
+
+    /* PIE DE PÁGINA */
+    footer {
+      background-color: var(--rosa-pastel);
+      padding: 3rem 2rem 1.5rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 1rem;
+      color: var(--texto-principal);
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(66, 55, 58, 0.1);
+      font-size: 0.85rem;
+      color: var(--marron-suave);
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: var(--blanco);
+      padding: 2rem;
+      border-radius: var(--borde-radio);
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="nav-container">
+      <a href="#inicio" class="logo">dewy seoul ♡</a>
+      <nav class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#boxes">Skin Boxes</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="cart-btn" onclick="scrollToCart()">
+        🛍️ Carrito (<span id="cart-count">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- PORTADA / HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <h1>Tu piel, tu rutina, tu momento.</h1>
+        <p>Descubre productos de skincare coreano y encuentra opciones para crear una rutina a tu manera.</p>
+        <div class="hero-buttons">
+          <a href="#catalogo" class="btn btn-primary">Explorar productos</a>
+          <a href="#boxes" class="btn btn-secondary">Descubrir skin boxes</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80" alt="Productos de skincare coreano" onerror="this.src='https://via.placeholder.com/600x400/F3DDE3/42373A?text=Dewy+Seoul+Skincare'">
+      </div>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <section id="catalogo">
+      <h2 class="section-title">Catálogo de productos</h2>
+      <div class="controls">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Buscar producto..." oninput="filtrarProductos()">
+        </div>
+        <div class="filter-buttons">
+          <button class="filter-btn active" onclick="filtrarCategoria('todos', this)">Todos</button>
+          <button class="filter-btn" onclick="filtrarCategoria('limpiador', this)">Limpiadores</button>
+          <button class="filter-btn" onclick="filtrarCategoria('tonico', this)">Tónicos</button>
+          <button class="filter-btn" onclick="filtrarCategoria('serum', this)">Sérums</button>
+          <button class="filter-btn" onclick="filtrarCategoria('crema', this)">Cremas</button>
+          <button class="filter-btn" onclick="filtrarCategoria('solar', this)">Protectores Solares</button>
+        </div>
+      </div>
+      <div class="grid-container" id="productos-container"></div>
+    </section>
+
+    <!-- SKIN BOXES -->
+    <section id="boxes">
+      <h2 class="section-title">Nuestras skin boxes</h2>
+      <div class="grid-container" id="boxes-container"></div>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS -->
+    <section id="nosotros">
+      <h2 class="section-title">Conoce Dewy Seoul</h2>
+      <div class="nosotros-content">
+        <p>Dewy Seoul es una propuesta de emprendimiento que busca hacer más sencilla la elección de productos de skincare coreano. Ofrecemos opciones individuales y boxes preparadas para que cada persona pueda explorar diferentes productos de cuidado facial de manera práctica.</p>
+        <div class="valores-grid">
+          <div class="valor-card">
+            <h3>Selección cuidadosa</h3>
+            <p>Elegimos productos clave para simplificar tu rutina diaria.</p>
+          </div>
+          <div class="valor-card">
+            <h3>Compra sencilla</h3>
+            <p>Kits y catálogo diseñados para elegir sin complicaciones.</p>
+          </div>
+          <div class="valor-card">
+            <h3>Información clara</h3>
+            <p>Detalles transparentes sobre cada uno de nuestros artículos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARRITO DE COMPRAS -->
+    <section id="carrito-seccion">
+      <h2 class="section-title">Tu Carrito de Compras</h2>
+      <div class="cart-section">
+        <div id="cart-items"></div>
+        <div class="cart-total">Total: $<span id="cart-total-price">0.00</span></div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE PEDIDO -->
+    <section id="pedido-seccion">
+      <h2 class="section-title">Datos de tu pedido</h2>
+      <div class="checkout-section">
+        <form id="order-form" onsubmit="confirmarPedido(event)">
+          <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="entrega">Forma de entrega *</label>
+            <select id="entrega" required>
+              <option value="retiro">Retiro acordado</option>
+              <option value="domicilio">Entrega a domicilio simulada</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comentarios">Comentarios opcionales</label>
+            <textarea id="comentarios" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Confirmar pedido de prueba</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto">
+      <h2 class="section-title">Contáctanos</h2>
+      <div class="checkout-section">
+        <p style="margin-bottom: 1rem;"><strong>Teléfono:</strong> 0996015953</p>
+        <p style="margin-bottom: 1rem;"><strong>Correo:</strong> dewy.seoull@gmail.com</p>
+        <button class="btn btn-secondary" onclick="alert('El enlace de WhatsApp no está configurado aún.')" style="margin-bottom: 2rem;">Contactar por WhatsApp</button>
+        
+        <form onsubmit="event.preventDefault(); alert('Esta es una simulación. El mensaje no se ha enviado a un servidor real.');">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" required>
+          </div>
+          <div class="form-group">
+            <label>Asunto</label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Mensaje</label>
+            <textarea rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- POLÍTICA DE PRIVACIDAD -->
+    <section id="politica-privacidad">
+      <h2 class="section-title">Política de Privacidad y Protección de Datos Personales</h2>
+      <div class="policy-section">
+        <h3>POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS PERSONALES — DEWY SEOUL</h3>
+        <br>
+        <h4>1. Introducción</h4>
+        <p>Dewy Seoul reconoce la importancia de proteger la privacidad de las personas y de tratar los datos personales de manera responsable. Esta política explica qué información podría recopilarse, con qué finalidad se utilizaría, cómo se conservaría y qué derechos tienen sus titulares. Actualmente, Dewy Seoul es un proyecto escolar demostrativo y no debe presentarse como una tienda que procesa pedidos reales si esa función no existe.</p>
+        <br>
+        <h4>2. Responsable del tratamiento</h4>
+        <p>Nombre del proyecto: Dewy Seoul.<br>
+        Responsable del tratamiento: Valeria Thais Albán Castillo.<br>
+        Dirección de contacto: cecastillol2105@gmail.com.<br>
+        Correo electrónico: dewy.seoull@gmail.com.<br>
+        Teléfono: 0996015953.</p>
+        <br>
+        <h4>3. Datos personales</h4>
+        <p>Si el sitio llegara a gestionar pedidos reales, podría solicitar información como nombre, correo electrónico, teléfono y dirección de entrega, únicamente cuando sea necesaria y se informe debidamente al usuario. En la versión demostrativa actual, la información ingresada en el formulario de pedido no se envía a ningún servidor ni se almacena en base de datos alguna.</p>
+        <br>
+        <h4>4. Finalidades y bases legales</h4>
+        <p>En una futura operación comercial, los datos se utilizarían únicamente para finalidades informadas, como gestionar pedidos, responder consultas y coordinar entregas, sobre la base jurídica que corresponda a cada tratamiento. Cuando sea necesario el consentimiento, este deberá ser libre, específico, informado e inequívoco.</p>
+        <br>
+        <h4>5. Conservación de los datos</h4>
+        <p>En la versión demostrativa, los datos de los formularios no se almacenan. El carrito utiliza únicamente el almacenamiento local del navegador (localStorage) para conservar temporalmente los productos seleccionados por el propio usuario.</p>
+        <br>
+        <h4>6. Comunicación a terceros</h4>
+        <p>No se comparten datos con empresas de pagos, transportistas u otros proveedores ya que dichos servicios no se encuentran conectados en esta versión demostrativa.</p>
+        <br>
+        <h4>7. Derechos de los titulares</h4>
+        <p>De conformidad con la normativa ecuatoriana aplicable, los titulares podrán ejercer los derechos que correspondan, incluidos el acceso, la rectificación y actualización, la eliminación, la oposición, la limitación del tratamiento y la portabilidad cuando proceda, además de los demás derechos reconocidos por la ley.</p>
+        <br>
+        <h4>8. Decisiones automatizadas</h4>
+        <p>La versión actual no utiliza decisiones automatizadas ni elaboración de perfiles para evaluar a los usuarios.</p>
+        <br>
+        <h4>9. Cookies y almacenamiento local</h4>
+        <p>Este sitio no utiliza cookies de seguimiento ni analíticas. Únicamente se utiliza localStorage del navegador para mantener la persistencia de los productos guardados en el carrito de compras.</p>
+        <br>
+        <h4>10. Seguridad</h4>
+        <p>Se aplicarán medidas razonables y apropiadas para proteger los datos que realmente se recopilen o almacenen en futuras versiones operativas.</p>
+        <br>
+        <h4>11. Actualizaciones y contacto</h4>
+        <p>Esta política podrá actualizarse cuando cambien las funciones del sitio o el tratamiento de datos personales. Esta política constituye un modelo inicial para un proyecto escolar y deberá completarse y revisarse antes de utilizar la página para recoger datos personales o realizar ventas reales.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>dewy seoul ♡</h4>
+        <p>Tu piel, tu rutina, tu momento.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#boxes">Skin Boxes</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legales</h4>
+        <ul>
+          <li><a href="#politica-privacidad">Política de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>Tel: 0996015953</p>
+        <p>Email: dewy.seoull@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Proyecto de emprendimiento estudiantil — 3ero BGU</p>
+    </div>
+  </footer>
+
+  <!-- MODAL DE DETALLES -->
+  <div class="modal" id="modal-detalles">
+    <div class="modal-content">
+      <span class="close-modal" onclick="cerrarModal()">&times;</span>
+      <h3 id="modal-titulo"></h3>
+      <p id="modal-descripcion" style="margin: 1rem 0;"></p>
+      <p id="modal-extra" style="font-size: 0.9rem; color: var(--marron-suave);"></p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // DATOS DE PRODUCTOS
+    const productos = [
+      {
+        id: 1,
+        nombre: 'Gentle Foam Cleanser',
+        categoria: 'limpiador',
+        descripcion: 'Limpiador facial suave en espuma para todo tipo de piel.',
+        precio: 9.99,
+        imagen: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80',
+        uso: 'Aplicar sobre el rostro húmedo y dar un suave masaje antes de enjuagar.'
+      },
+      {
+        id: 2,
+        nombre: 'Hydrating Rice Toner',
+        categoria: 'tonico',
+        descripcion: 'Tónico hidratante a base de extracto de arroz.',
+        precio: 11.99,
+        imagen: 'https://images.unsplash.com/photo-1608248597262-838d51715429?auto=format&fit=crop&w=400&q=80',
+        uso: 'Aplicar con palmaditas suaves sobre el rostro limpio.'
+      },
+      {
+        id: 3,
+        nombre: 'Glow Niacinamide Serum',
+        categoria: 'serum',
+        descripcion: 'Sérum iluminador con Niacinamida para unificar el tono.',
+        precio: 14.99,
+        imagen: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80',
+        uso: 'Aplicar 2-3 gotas antes de la crema hidratante.'
+      },
+      {
+        id: 4,
+        nombre: 'Ceramide Deep Cream',
+        categoria: 'crema',
+        descripcion: 'Crema nutritiva con ceramidas para reforzar la barrera cutánea.',
+        precio: 13.99,
+        imagen: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=400&q=80',
+        uso: 'Usar como último paso de la rutina de hidratación.'
+      },
+      {
+        id: 5,
+        nombre: 'Airy Watery Sunscreen',
+        categoria: 'solar',
+        descripcion: 'Protector solar de textura ligera y acabado invisible.',
+        precio: 12.99,
+        imagen: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=400&q=80',
+        uso: 'Aplicar cada mañana como paso final.'
+      }
+    ];
+
+    // DATOS DE SKIN BOXES
+    const skinBoxes = [
+      {
+        id: 'box-1',
+        nombre: 'Starter Box',
+        descripcion: 'Una selección básica para quienes desean comenzar una rutina de cuidado facial.',
+        precio: 12.00,
+        contenidoTxt: '2 productos completos: Gentle Foam Cleanser y Ceramide Deep Cream.',
+        imagen: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80'
+      },
+      {
+        id: 'box-2',
+        nombre: 'Hydration Box',
+        descripcion: 'Una selección enfocada en complementar la hidratación de la piel.',
+        precio: 16.00,
+        contenidoTxt: '3 productos completos: Hydrating Rice Toner, Glow Niacinamide Serum y Ceramide Deep Cream.',
+        imagen: 'https://images.unsplash.com/photo-1608248597262-838d51715429?auto=format&fit=crop&w=400&q=80'
+      },
+      {
+        id: 'box-3',
+        nombre: 'Glow Box',
+        descripcion: 'Una selección de productos para una rutina de cuidado facial.',
+        precio: 20.00,
+        contenidoTxt: '3 productos completos: Gentle Foam Cleanser, Glow Niacinamide Serum y Airy Watery Sunscreen.',
+        imagen: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80'
+      }
+    ];
+
+    let carrito = JSON.parse(localStorage.getItem('dewy_cart')) || [];
+
+    // INICIALIZACIÓN
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProductos(productos);
+      renderBoxes();
+      actualizarCarritoUI();
+    });
+
+    // MOSTRAR PRODUCTOS
+    function renderProductos(lista) {
+      const container = document.getElementById('productos-container');
+      container.innerHTML = '';
+      lista.forEach(prod => {
+        container.innerHTML += `
+          <div class="card">
+            <img src="${prod.imagen}" alt="${prod.nombre}" onerror="this.src='https://via.placeholder.com/300x200/F3DDE3/42373A?text=${encodeURIComponent(prod.nombre)}'">
+            <div class="card-category">${prod.categoria}</div>
+            <div class="card-title">${prod.nombre}</div>
+            <div class="card-description">${prod.descripcion}</div>
+            <div class="card-price">$${prod.precio.toFixed(2)}</div>
+            <div class="card-actions">
+              <button class="btn btn-secondary" onclick="verDetalles(${prod.id})">Ver detalles</button>
+              <button class="btn btn-primary" onclick="agregarAlCarrito('${prod.id}', '${prod.nombre}', ${prod.precio}, '${prod.imagen}')">Añadir</button>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // MOSTRAR SKIN BOXES
+    function renderBoxes() {
+      const container = document.getElementById('boxes-container');
+      container.innerHTML = '';
+      skinBoxes.forEach(box => {
+        container.innerHTML += `
+          <div class="card">
+            <img src="${box.imagen}" alt="${box.nombre}" onerror="this.src='https://via.placeholder.com/300x200/E7BFCB/42373A?text=${encodeURIComponent(box.nombre)}'">
+            <div class="card-category">Skin Box</div>
+            <div class="card-title">${box.nombre}</div>
+            <div class="card-description">${box.descripcion}</div>
+            <div class="card-price">$${box.precio.toFixed(2)}</div>
+            <div class="card-actions">
+              <button class="btn btn-secondary" onclick="verDetallesBox('${box.id}')">Ver contenido</button>
+              <button class="btn btn-primary" onclick="agregarAlCarrito('${box.id}', '${box.nombre}', ${box.precio}, '${box.imagen}')">Añadir</button>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // FILTROS Y BÚSQUEDA
+    function filtrarProductos() {
+      const busqueda = document.getElementById('search-input').value.toLowerCase();
+      const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(busqueda));
+      renderProductos(filtrados);
+    }
+
+    function filtrarCategoria(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (cat === 'todos') {
+        renderProductos(productos);
+      } else {
+        const filtrados = productos.filter(p => p.categoria === cat);
+        renderProductos(filtrados);
+      }
+    }
+
+    // MANEJO DEL CARRITO
+    function agregarAlCarrito(id, nombre, precio, imagen) {
+      const itemExistente = carrito.find(item => item.id === id);
+      if (itemExistente) {
+        itemExistente.cantidad++;
+      } else {
+        carrito.push({ id, nombre, precio, imagen, cantidad: 1 });
+      }
+      guardarCarrito();
+      actualizarCarritoUI();
+    }
+
+    function cambiarCantidad(id, cambio) {
+      const item = carrito.find(i => i.id === id);
+      if (item) {
+        item.cantidad += cambio;
+        if (item.cantidad <= 0) {
+          carrito = carrito.filter(i => i.id !== id);
+        }
+      }
+      guardarCarrito();
+      actualizarCarritoUI();
+    }
+
+    function guardarCarrito() {
+      localStorage.setItem('dewy_cart', JSON.stringify(carrito));
+    }
+
+    function actualizarCarritoUI() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotalPrice = document.getElementById('cart-total-price');
+
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+      let cantTotal = 0;
+
+      if (carrito.length === 0) {
+        cartItemsContainer.innerHTML = '<p>El carrito está vacío.</p>';
+      } else {
+        carrito.forEach(item => {
+          const subtotal = item.precio * item.cantidad;
+          total += subtotal;
+          cantTotal += item.cantidad;
+
+          cartItemsContainer.innerHTML += `
+            <div class="cart-item">
+              <div class="cart-item-info">
+                <img src="${item.imagen}" alt="${item.nombre}">
+                <div>
+                  <strong>${item.nombre}</strong><br>
+                  <small>$${item.precio.toFixed(2)} c/u</small>
+                </div>
+              </div>
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="cambiarCantidad('${item.id}', -1)">-</button>
+                <span>${item.cantidad}</span>
+                <button class="qty-btn" onclick="cambiarCantidad('${item.id}', 1)">+</button>
+              </div>
+              <div>$${subtotal.toFixed(2)}</div>
+            </div>
+          `;
+        });
+      }
+
+      cartCount.textContent = cantTotal;
+      cartTotalPrice.textContent = total.toFixed(2);
+    }
+
+    function scrollToCart() {
+      document.getElementById('carrito-seccion').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // MODAL DETALLES
+    function verDetalles(id) {
+      const prod = productos.find(p => p.id === id);
+      if (prod) {
+        document.getElementById('modal-titulo').textContent = prod.nombre;
+        document.getElementById('modal-descripcion').textContent = prod.descripcion;
+        document.getElementById('modal-extra').textContent = 'Modo de uso: ' + prod.uso;
+        document.getElementById('modal-detalles').style.display = 'flex';
+      }
+    }
+
+    function verDetallesBox(id) {
+      const box = skinBoxes.find(b => b.id === id);
+      if (box) {
+        document.getElementById('modal-titulo').textContent = box.nombre;
+        document.getElementById('modal-descripcion').textContent = box.descripcion;
+        document.getElementById('modal-extra').textContent = 'Contenido: ' + box.contenidoTxt;
+        document.getElementById('modal-detalles').style.display = 'flex';
+      }
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal-detalles').style.display = 'none';
+    }
+
+    // CONFIRMACIÓN DE PEDIDO SIMULADO
+    function confirmarPedido(e) {
+      e.preventDefault();
+      if (carrito.length === 0) {
+        alert('Tu carrito está vacío. Añade productos antes de confirmar el pedido.');
+        return;
+      }
+      const numPedido = 'DS-' + Math.floor(100000 + Math.random() * 900000);
+      const total = document.getElementById('cart-total-price').textContent;
+      alert(`¡Pedido de demostración realizado con éxito!\n\nNúmero de pedido: ${numPedido}\nTotal: $${total}\n\nNota: Esta es una simulación escolar de Dewy Seoul.`);
+      carrito = [];
+      guardarCarrito();
+      actualizarCarritoUI();
+      document.getElementById('order-form').reset();
+    }
+  </script>
+</body>
+</html>
